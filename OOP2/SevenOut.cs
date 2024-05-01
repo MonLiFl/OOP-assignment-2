@@ -29,15 +29,16 @@ namespace OOP2
         // Method to play the game
         public void PlayGameSeven()
         {
-            // Variables used in game
-            int gameOver = 0;
-            int round = 1;
-            int totalScoreP1 = 0;
-            int totalScoreP2 = 0;
-
-            // Loops until game is over
-            while (gameOver == 0)
+            try
             {
+                // Variables used in the game
+                int gameOver = 0;
+                int round = 1;
+                int totalScoreP1 = 0;
+                int totalScoreP2 = 0;
+
+                // Loops until the game is over
+                while (gameOver == 0)
                 {
                     // Loops for every round
                     while (true)
@@ -55,7 +56,7 @@ namespace OOP2
 
                         Console.WriteLine("Player 1 Rolled: " + roll1 + " and " + roll2);
 
-                        // Checks the winning condition
+                        // Checks the winning condition for Player 1
                         if (totalRollP1 == 7)
                         {
                             totalScoreP1 += totalRollP1;
@@ -80,6 +81,7 @@ namespace OOP2
                                 Console.WriteLine("Total P1 Score for round " + round + ": =   " + totalScoreP1);
                             }
                         }
+
                         // Player 2 turn
                         Console.WriteLine("///////////////////////////////////////////");
                         Console.WriteLine("Player 2 press any key to roll the dice.");
@@ -88,7 +90,7 @@ namespace OOP2
 
                         Console.WriteLine("Player 2 Rolled: " + roll3 + " and " + roll4);
 
-                        // Checks the winning condition
+                        // Checks the winning condition for Player 2
                         if (totalRollP2 == 7)
                         {
                             totalScoreP2 += totalRollP2;
@@ -114,14 +116,18 @@ namespace OOP2
                         }
                         Console.WriteLine("///////////////////////////////////////////");
 
-                        // increments round counter
+                        // Increment round counter
                         round++;
                         if (gameOver == 1)
                             break; // Game ends if a player rolls a 7
                     }
                 }
             }
+            catch (Exception)
+            {
+                // Handle the exception
+                Console.WriteLine("An error occurred");
+            }
         }
     }
-
 }

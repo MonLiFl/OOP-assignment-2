@@ -28,17 +28,18 @@ namespace OOP2
 
         public void PlayGameThreeOrMore()
         {
-            // Variables
-            int gameOver = 0;
-            int round = 1;
-            int totalScoreP1 = 0;
-            int totalScoreP2 = 0;
-
-
-            // Loops until game is over
-            while (gameOver == 0)
+            try
             {
-                {   // Loop for every round
+                // Variables
+                int gameOver = 0;
+                int round = 1;
+                int totalScoreP1 = 0;
+                int totalScoreP2 = 0;
+
+                // Loops until game is over
+                while (gameOver == 0)
+                {
+                    // Loop for every round
                     while (totalScoreP1 < 20 && totalScoreP2 < 20)
                     {
                         // Player 1 turn
@@ -172,8 +173,6 @@ namespace OOP2
                             Console.WriteLine("Player 2 Round " + round + " Total " + totalScoreP1);
                         }
 
-
-
                         // Checks for 5 of a kind
                         if (FiveOfAKind(rollsP2))
                         {
@@ -196,7 +195,11 @@ namespace OOP2
                     round++;
                 }
                 // Add scores for the round to the statistics
-
+            }
+            catch (Exception)
+            {
+                // Handle the exception
+                Console.WriteLine("An error occurred");
             }
         }
 
